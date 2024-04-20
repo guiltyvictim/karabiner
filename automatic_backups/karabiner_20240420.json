@@ -56,24 +56,13 @@
                                         ]
                                     }
                                 },
-                                "to_after_key_up": [
-                                    {
-                                        "set_variable": {
-                                            "name": "stat",
-                                            "value": "ready"
-                                        }
-                                    },
-                                    {
-                                        "shell_command": "echo \"!ready\" > ~/.config/karabiner/stat.txt"
-                                    }
-                                ],
                                 "to_if_alone": [
                                     {
-                                        "halt": true,
                                         "set_variable": {
                                             "name": "stat",
                                             "value": "menu"
-                                        }
+                                        },
+                                        "halt": true
                                     },
                                     {
                                         "shell_command": "echo \"#Menu\" > ~/.config/karabiner/stat.txt"
@@ -98,6 +87,17 @@
                                         ]
                                     }
                                 ],
+                                "to_after_key_up": [
+                                    {
+                                        "set_variable": {
+                                            "name": "stat",
+                                            "value": "ready"
+                                        }
+                                    },
+                                    {
+                                        "shell_command": "echo \"!ready\" > ~/.config/karabiner/stat.txt"
+                                    }
+                                ],
                                 "type": "basic"
                             },
                             {
@@ -116,24 +116,13 @@
                                         ]
                                     }
                                 },
-                                "to_after_key_up": [
-                                    {
-                                        "set_variable": {
-                                            "name": "stat",
-                                            "value": "ready"
-                                        }
-                                    },
-                                    {
-                                        "shell_command": "echo \"!ready\" > ~/.config/karabiner/stat.txt"
-                                    }
-                                ],
                                 "to_if_alone": [
                                     {
-                                        "halt": true,
                                         "set_variable": {
                                             "name": "stat",
                                             "value": "ready"
-                                        }
+                                        },
+                                        "halt": true
                                     },
                                     {
                                         "shell_command": "echo \"!ready\" > ~/.config/karabiner/stat.txt"
@@ -156,6 +145,17 @@
                                             "left_control",
                                             "left_option"
                                         ]
+                                    }
+                                ],
+                                "to_after_key_up": [
+                                    {
+                                        "set_variable": {
+                                            "name": "stat",
+                                            "value": "ready"
+                                        }
+                                    },
+                                    {
+                                        "shell_command": "echo \"!ready\" > ~/.config/karabiner/stat.txt"
                                     }
                                 ],
                                 "type": "basic"

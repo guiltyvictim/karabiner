@@ -1,0 +1,68 @@
+## Glossary
+- Shortcuts listed in () brackets.
+- (+) denotes holding left key whilst pressing subsequent keys.
+- Child bullet denotes the next keypress after parent key was released
+## List
+- (⇧+⇪) - Toggle Capslock, order matters
+- (Hold ⇪) - Hyper key, equivalent to (⇧^⌥⌘)
+- (⇪) - Initiate Menu shortcuts
+	- (O)pen Apps
+		- (F)inder
+		- Proton(V)PN
+		- (R)eeder
+		- E(X)cel
+		- (C)alendar
+		- (N)otion
+		- O(B)isidian
+		- (W)arp
+		- (D)iscord
+		- (O)BS Studio
+		- (A)rc Browser
+		- (T)exts.com
+		- (R)eeder
+		- Spark (M)ail
+	- Develo(P)er Tools
+		- (G)itHub Desktop
+		- (Z)ed
+		- (S)ublime Text
+		- VS (C)ode
+	- (R)aycast
+		- (Q) Confettis!
+			- Using (Q) because it's least used and it allows one hand confetti
+		- (E)moji Picker
+	- (S)ystem
+		- (D)isplay Pane
+		- (P)asswords Pane
+			- I use 1Password, but this has its uses
+		- (A)pple ID Pane
+		- (L)ockscreen
+			- I went for Raycast's lockscreen command deeplink because I couldn't find the right shell command, but it works so I can't be bothered!
+			- Also I know sometimes terminal MacOS terminal commands for these things change so hopefully this is more future proofed!
+	- (F)inder
+		- A(P)plications
+			- (⇪, F, A) feels uncomfortable so I went with (⇪, F, P)
+		- Down(L)oads
+		- (D)ocuments
+		- (K)arabiner Config folder
+		- (S)creenshots
+			- Custom folder with CleanShot X
+	- (V)ideo Services - via browser
+		- (Y)ouTube
+		- Ne(B)ula
+		- (N)etflix
+		- (P)lex
+		- (C)runchyroll
+		- (A)mazon Prime Video
+			- UK version
+		- (D)isney+
+	- (C)reative
+		- (A)udacity
+		- Affinity (P)hoto
+		- Affinity Des(I)gner
+			- Using (I) for you Illustrator users
+		- Affinity Pu(B)lisher
+		- (D)aVinci Resolve
+	- (G)aming
+		- (S)team
+		- (C)rossOver
+		- (A)pp Store
