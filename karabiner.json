@@ -1,0 +1,1062 @@
+{
+    "global": {
+        "ask_for_confirmation_before_quitting": true,
+        "check_for_updates_on_startup": true,
+        "show_in_menu_bar": false,
+        "show_profile_name_in_menu_bar": false,
+        "unsafe_ui": false
+    },
+    "profiles": [
+        {
+            "complex_modifications": {
+                "parameters": {
+                    "basic.simultaneous_threshold_milliseconds": 50,
+                    "basic.to_delayed_action_delay_milliseconds": 500,
+                    "basic.to_if_alone_timeout_milliseconds": 1000,
+                    "basic.to_if_held_down_threshold_milliseconds": 200,
+                    "mouse_motion_to_scroll.speed": 100
+                },
+                "rules": [
+                    {
+                        "description": "Hyper and Menu Key",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "caps_lock",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_shift"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "caps_lock",
+                                        "modifiers": []
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "stat",
+                                        "type": "variable_if",
+                                        "value": "ready"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "caps_lock",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to_if_alone": [
+                                    {
+                                        "set_variable": {
+                                            "name": "stat",
+                                            "value": "menu"
+                                        },
+                                        "halt": true
+                                    },
+                                    {
+                                        "shell_command": "echo \"#Menu\" > ~/.config/karabiner/stat.txt"
+                                    }
+                                ],
+                                "to_if_held_down": [
+                                    {
+                                        "set_variable": {
+                                            "name": "stat",
+                                            "value": "hyper"
+                                        }
+                                    },
+                                    {
+                                        "shell_command": "echo \"#Hyper\" > ~/.config/karabiner/stat.txt"
+                                    },
+                                    {
+                                        "key_code": "left_shift",
+                                        "modifiers": [
+                                            "left_command",
+                                            "left_control",
+                                            "left_option"
+                                        ]
+                                    }
+                                ],
+                                "to_after_key_up": [
+                                    {
+                                        "set_variable": {
+                                            "name": "stat",
+                                            "value": "ready"
+                                        }
+                                    },
+                                    {
+                                        "shell_command": "echo \"!ready\" > ~/.config/karabiner/stat.txt"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "stat",
+                                        "type": "variable_unless",
+                                        "value": "ready"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "caps_lock",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to_if_alone": [
+                                    {
+                                        "set_variable": {
+                                            "name": "stat",
+                                            "value": "ready"
+                                        },
+                                        "halt": true
+                                    },
+                                    {
+                                        "shell_command": "echo \"!ready\" > ~/.config/karabiner/stat.txt"
+                                    }
+                                ],
+                                "to_if_held_down": [
+                                    {
+                                        "set_variable": {
+                                            "name": "stat",
+                                            "value": "hyper"
+                                        }
+                                    },
+                                    {
+                                        "shell_command": "echo \"#Hyper\" > ~/.config/karabiner/stat.txt"
+                                    },
+                                    {
+                                        "key_code": "left_shift",
+                                        "modifiers": [
+                                            "left_command",
+                                            "left_control",
+                                            "left_option"
+                                        ]
+                                    }
+                                ],
+                                "to_after_key_up": [
+                                    {
+                                        "set_variable": {
+                                            "name": "stat",
+                                            "value": "ready"
+                                        }
+                                    },
+                                    {
+                                        "shell_command": "echo \"!ready\" > ~/.config/karabiner/stat.txt"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Open apps",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "stat",
+                                        "type": "variable_if",
+                                        "value": "menu"
+                                    }
+                                ],
+                                "description": "Turn on Open Apps",
+                                "from": {
+                                    "key_code": "o",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "stat",
+                                            "value": "open"
+                                        }
+                                    },
+                                    {
+                                        "shell_command": "echo \"#Open\" > ~/.config/karabiner/stat.txt"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "stat",
+                                        "type": "variable_if",
+                                        "value": "open"
+                                    }
+                                ],
+                                "description": "Open GitHub",
+                                "from": {
+                                    "key_code": "g"
+                                },
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "stat",
+                                            "value": "ready"
+                                        }
+                                    },
+                                    {
+                                        "shell_command": "open -a 'GitHub Desktop.app'; echo \"!ready\" > ~/.config/karabiner/stat.txt"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "stat",
+                                        "type": "variable_if",
+                                        "value": "open"
+                                    }
+                                ],
+                                "description": "Open Obsidian",
+                                "from": {
+                                    "key_code": "b"
+                                },
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "stat",
+                                            "value": "ready"
+                                        }
+                                    },
+                                    {
+                                        "shell_command": "open -a 'Obsidian.app'; echo \"!ready\" > ~/.config/karabiner/stat.txt"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "stat",
+                                        "type": "variable_if",
+                                        "value": "open"
+                                    }
+                                ],
+                                "description": "Open Warp",
+                                "from": {
+                                    "key_code": "w"
+                                },
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "stat",
+                                            "value": "ready"
+                                        }
+                                    },
+                                    {
+                                        "shell_command": "open -a 'Warp.app'; echo \"!ready\" > ~/.config/karabiner/stat.txt"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "stat",
+                                        "type": "variable_if",
+                                        "value": "open"
+                                    }
+                                ],
+                                "description": "Open Discord",
+                                "from": {
+                                    "key_code": "d"
+                                },
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "stat",
+                                            "value": "ready"
+                                        }
+                                    },
+                                    {
+                                        "shell_command": "open -a 'Discord.app'; echo \"!ready\" > ~/.config/karabiner/stat.txt"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "stat",
+                                        "type": "variable_if",
+                                        "value": "open"
+                                    }
+                                ],
+                                "description": "Open OBS",
+                                "from": {
+                                    "key_code": "o"
+                                },
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "stat",
+                                            "value": "ready"
+                                        }
+                                    },
+                                    {
+                                        "shell_command": "open -a 'OBS.app'; echo \"!ready\" > ~/.config/karabiner/stat.txt"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "stat",
+                                        "type": "variable_if",
+                                        "value": "open"
+                                    }
+                                ],
+                                "description": "Open Discord",
+                                "from": {
+                                    "key_code": "a"
+                                },
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "stat",
+                                            "value": "ready"
+                                        }
+                                    },
+                                    {
+                                        "shell_command": "open -a 'Arc.app'; echo \"!ready\" > ~/.config/karabiner/stat.txt"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "stat",
+                                        "type": "variable_if",
+                                        "value": "open"
+                                    }
+                                ],
+                                "description": "Open Texts",
+                                "from": {
+                                    "key_code": "t"
+                                },
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "stat",
+                                            "value": "ready"
+                                        }
+                                    },
+                                    {
+                                        "shell_command": "open -a 'Texts.app'; echo \"!ready\" > ~/.config/karabiner/stat.txt"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "stat",
+                                        "type": "variable_if",
+                                        "value": "open"
+                                    }
+                                ],
+                                "description": "Open Sublime Text",
+                                "from": {
+                                    "key_code": "s"
+                                },
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "stat",
+                                            "value": "ready"
+                                        }
+                                    },
+                                    {
+                                        "shell_command": "open -a 'Sublime Text.app'; echo \"!ready\" > ~/.config/karabiner/stat.txt"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "stat",
+                                        "type": "variable_if",
+                                        "value": "open"
+                                    }
+                                ],
+                                "description": "Open Reeder",
+                                "from": {
+                                    "key_code": "r"
+                                },
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "stat",
+                                            "value": "ready"
+                                        }
+                                    },
+                                    {
+                                        "shell_command": "open -a 'Reeder.app'; echo \"!ready\" > ~/.config/karabiner/stat.txt"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "stat",
+                                        "type": "variable_if",
+                                        "value": "open"
+                                    }
+                                ],
+                                "description": "Open Spark",
+                                "from": {
+                                    "key_code": "m"
+                                },
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "stat",
+                                            "value": "ready"
+                                        }
+                                    },
+                                    {
+                                        "shell_command": "open -a 'Spark Desktop.app'; echo \"!ready\" > ~/.config/karabiner/stat.txt"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Raycast Commands",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "stat",
+                                        "type": "variable_if",
+                                        "value": "menu"
+                                    }
+                                ],
+                                "description": "Raycast",
+                                "from": {
+                                    "key_code": "r",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "stat",
+                                            "value": "raycast"
+                                        }
+                                    },
+                                    {
+                                        "shell_command": "echo \"#Raycast\" > ~/.config/karabiner/stat.txt"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "stat",
+                                        "type": "variable_if",
+                                        "value": "raycast"
+                                    }
+                                ],
+                                "description": "Confetti",
+                                "from": {
+                                    "key_code": "q"
+                                },
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "stat",
+                                            "value": "ready"
+                                        }
+                                    },
+                                    {
+                                        "shell_command": "open raycast://extensions/raycast/raycast/confetti; echo \"!ready\" > ~/.config/karabiner/stat.txt"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "stat",
+                                        "type": "variable_if",
+                                        "value": "raycast"
+                                    }
+                                ],
+                                "description": "Emoji Picker",
+                                "from": {
+                                    "key_code": "e"
+                                },
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "stat",
+                                            "value": "ready"
+                                        }
+                                    },
+                                    {
+                                        "shell_command": "open raycast://extensions/raycast/emoji-symbols/search-emoji-symbols; echo \"!ready\" > ~/.config/karabiner/stat.txt"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "System",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "stat",
+                                        "type": "variable_if",
+                                        "value": "menu"
+                                    }
+                                ],
+                                "description": "Open System",
+                                "from": {
+                                    "key_code": "s",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "stat",
+                                            "value": "system"
+                                        }
+                                    },
+                                    {
+                                        "shell_command": "echo \"#system\" > ~/.config/karabiner/stat.txt"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "stat",
+                                        "type": "variable_if",
+                                        "value": "system"
+                                    }
+                                ],
+                                "description": "Display Pane",
+                                "from": {
+                                    "key_code": "d"
+                                },
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "stat",
+                                            "value": "ready"
+                                        }
+                                    },
+                                    {
+                                        "shell_command": "open /System/Library/PreferencePanes/Displays.prefPane; echo \"!ready\" > ~/.config/karabiner/stat.txt"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "stat",
+                                        "type": "variable_if",
+                                        "value": "system"
+                                    }
+                                ],
+                                "description": "System passwords",
+                                "from": {
+                                    "key_code": "p"
+                                },
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "stat",
+                                            "value": "ready"
+                                        }
+                                    },
+                                    {
+                                        "shell_command": "open /System/Library/PreferencePanes/Passwords.prefPane; echo \"!ready\" > ~/.config/karabiner/stat.txt"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "stat",
+                                        "type": "variable_if",
+                                        "value": "system"
+                                    }
+                                ],
+                                "description": "Apple ID",
+                                "from": {
+                                    "key_code": "a"
+                                },
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "stat",
+                                            "value": "ready"
+                                        }
+                                    },
+                                    {
+                                        "shell_command": "open /System/Library/PreferencePanes/AppleIDPrefPane.prefPane/; echo \"!ready\" > ~/.config/karabiner/stat.txt"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "stat",
+                                        "type": "variable_if",
+                                        "value": "system"
+                                    }
+                                ],
+                                "description": "Lock screen",
+                                "from": {
+                                    "key_code": "l"
+                                },
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "stat",
+                                            "value": "ready"
+                                        }
+                                    },
+                                    {
+                                        "shell_command": "open raycast://extensions/raycast/system/lock-screen; echo \"!ready\" > ~/.config/karabiner/stat.txt"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Template (Change me after copying)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "stat",
+                                        "type": "variable_if",
+                                        "value": "menu"
+                                    }
+                                ],
+                                "description": "Change me: Layer Description. Also change key_code to your layer key of choice",
+                                "from": {
+                                    "key_code": "period",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "stat",
+                                            "value": "change_me_to_your_stat_name"
+                                        }
+                                    },
+                                    {
+                                        "shell_command": "echo \"#change_me_to_xbar_stat_name\" > ~/.config/karabiner/stat.txt"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "stat",
+                                        "type": "variable_if",
+                                        "value": "change_me_to_your_stat_name"
+                                    }
+                                ],
+                                "description": "Change me: Action to take. Also change key_code to your action key of choice. Change the first part of shell_command to what you want",
+                                "from": {
+                                    "key_code": "period"
+                                },
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "stat",
+                                            "value": "ready"
+                                        }
+                                    },
+                                    {
+                                        "shell_command": "open raycast://extensions/raycast/raycast/confetti; echo \"!ready\" > ~/.config/karabiner/stat.txt"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Numpad",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "stat",
+                                        "type": "variable_if",
+                                        "value": "menu"
+                                    }
+                                ],
+                                "description": "Turn on Numpad",
+                                "from": {
+                                    "key_code": "n",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "stat",
+                                            "value": "numpad"
+                                        }
+                                    },
+                                    {
+                                        "shell_command": "echo \"#Numpad\" > ~/.config/karabiner/stat.txt"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "stat",
+                                        "type": "variable_if",
+                                        "value": "numpad"
+                                    }
+                                ],
+                                "description": "4",
+                                "from": {
+                                    "key_code": "u"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "4"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "stat",
+                                        "type": "variable_if",
+                                        "value": "numpad"
+                                    }
+                                ],
+                                "description": "5",
+                                "from": {
+                                    "key_code": "i"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "5"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "stat",
+                                        "type": "variable_if",
+                                        "value": "numpad"
+                                    }
+                                ],
+                                "description": "6",
+                                "from": {
+                                    "key_code": "o"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "6"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "stat",
+                                        "type": "variable_if",
+                                        "value": "numpad"
+                                    }
+                                ],
+                                "description": "1",
+                                "from": {
+                                    "key_code": "j"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "1"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "stat",
+                                        "type": "variable_if",
+                                        "value": "numpad"
+                                    }
+                                ],
+                                "description": "2",
+                                "from": {
+                                    "key_code": "k"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "2"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "stat",
+                                        "type": "variable_if",
+                                        "value": "numpad"
+                                    }
+                                ],
+                                "description": "3",
+                                "from": {
+                                    "key_code": "l"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "3"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "devices": [
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": [],
+                    "game_pad_swap_sticks": false,
+                    "identifiers": {
+                        "is_game_pad": false,
+                        "is_keyboard": true,
+                        "is_pointing_device": false,
+                        "product_id": 0,
+                        "vendor_id": 0
+                    },
+                    "ignore": false,
+                    "manipulate_caps_lock_led": true,
+                    "mouse_flip_horizontal_wheel": false,
+                    "mouse_flip_vertical_wheel": false,
+                    "mouse_flip_x": false,
+                    "mouse_flip_y": false,
+                    "mouse_swap_wheels": false,
+                    "mouse_swap_xy": false,
+                    "simple_modifications": [],
+                    "treat_as_built_in_keyboard": false
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": [],
+                    "game_pad_swap_sticks": false,
+                    "identifiers": {
+                        "is_game_pad": false,
+                        "is_keyboard": false,
+                        "is_pointing_device": true,
+                        "product_id": 0,
+                        "vendor_id": 0
+                    },
+                    "ignore": true,
+                    "manipulate_caps_lock_led": false,
+                    "mouse_flip_horizontal_wheel": false,
+                    "mouse_flip_vertical_wheel": false,
+                    "mouse_flip_x": false,
+                    "mouse_flip_y": false,
+                    "mouse_swap_wheels": false,
+                    "mouse_swap_xy": false,
+                    "simple_modifications": [],
+                    "treat_as_built_in_keyboard": false
+                }
+            ],
+            "fn_function_keys": [
+                {
+                    "from": {
+                        "key_code": "f1"
+                    },
+                    "to": [
+                        {
+                            "consumer_key_code": "display_brightness_decrement"
+                        }
+                    ]
+                },
+                {
+                    "from": {
+                        "key_code": "f2"
+                    },
+                    "to": [
+                        {
+                            "consumer_key_code": "display_brightness_increment"
+                        }
+                    ]
+                },
+                {
+                    "from": {
+                        "key_code": "f3"
+                    },
+                    "to": [
+                        {
+                            "apple_vendor_keyboard_key_code": "mission_control"
+                        }
+                    ]
+                },
+                {
+                    "from": {
+                        "key_code": "f4"
+                    },
+                    "to": [
+                        {
+                            "apple_vendor_keyboard_key_code": "spotlight"
+                        }
+                    ]
+                },
+                {
+                    "from": {
+                        "key_code": "f5"
+                    },
+                    "to": [
+                        {
+                            "consumer_key_code": "dictation"
+                        }
+                    ]
+                },
+                {
+                    "from": {
+                        "key_code": "f6"
+                    },
+                    "to": [
+                        {
+                            "key_code": "f6"
+                        }
+                    ]
+                },
+                {
+                    "from": {
+                        "key_code": "f7"
+                    },
+                    "to": [
+                        {
+                            "consumer_key_code": "rewind"
+                        }
+                    ]
+                },
+                {
+                    "from": {
+                        "key_code": "f8"
+                    },
+                    "to": [
+                        {
+                            "consumer_key_code": "play_or_pause"
+                        }
+                    ]
+                },
+                {
+                    "from": {
+                        "key_code": "f9"
+                    },
+                    "to": [
+                        {
+                            "consumer_key_code": "fast_forward"
+                        }
+                    ]
+                },
+                {
+                    "from": {
+                        "key_code": "f10"
+                    },
+                    "to": [
+                        {
+                            "consumer_key_code": "mute"
+                        }
+                    ]
+                },
+                {
+                    "from": {
+                        "key_code": "f11"
+                    },
+                    "to": [
+                        {
+                            "consumer_key_code": "volume_decrement"
+                        }
+                    ]
+                },
+                {
+                    "from": {
+                        "key_code": "f12"
+                    },
+                    "to": [
+                        {
+                            "consumer_key_code": "volume_increment"
+                        }
+                    ]
+                }
+            ],
+            "name": "Default",
+            "parameters": {
+                "delay_milliseconds_before_open_device": 1000
+            },
+            "selected": true,
+            "simple_modifications": [],
+            "virtual_hid_keyboard": {
+                "country_code": 0,
+                "indicate_sticky_modifier_keys_state": true,
+                "mouse_key_xy_scale": 100
+            }
+        }
+    ]
+}
