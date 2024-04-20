@@ -73,7 +73,9 @@ cat ~/.config/karabiner/stat.txt
 The `.1s` part of the filename denotes how often the plugin is refreshed, and 1 second is the lowest limit.
 #### xbar not working?
 Check that the files have the right `chmod` permissions:
-- `a+w` for `~/config/karabiner/stat.txt`
+- `a+rw` for `~/config/karabiner/stat.txt`
+	- Write shouldn't be an issue as the file will be created by Karabiner Elements when you first use this template
+	- Read also shouldn't be a problem if you're the same user, but I don't fully understanding file permissions in UNIX!
 - `a+x` for `~/Library/Application Support/xbar/plugins/text.1s.sh`
 
 Also I assume that the `#!/usr/bin/env bash` shebang works on all MacOS computers. I don't know UNIX so I can't troubleshoot if that could be an issue.
