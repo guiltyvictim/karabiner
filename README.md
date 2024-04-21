@@ -26,15 +26,14 @@ In addition:
 - I've added a Numpad layer with (⇪, N)
 	- If at any point you wish to exit the numpad layer, you just have to hit Capslock (⇪) again.
 - If you wish to toggle caps lock function itself, just use Shift (⇧) + Capslock (⇪)
+- (⇪, S, F) toggles fn lock
 
 All the layers are grouped into their own rules, so you can more easily edit the rules within Karabiner Elements if you want. However you must enable the 'Hyper and Menu Key' rule for everything else to work.
 ## Installation
-I'm copying mxstbr's instructions here more or less
 1. Install and start [Karabiner Elements](https://karabiner-elements.pqrs.org/)!
 2. Clone this repository
-3. Delete the default `~/.config/karabiner` folder, or move it to `~/.config/karabiner.old` if you're already using karabiner and want to keep your config
-4. Create a symlink with `ln -s ~/path/of/this/repo/karabiner ~/.config` where `~/path/of/this/repo/karabiner` is your local path to where you cloned the repository
-5. Restart Karabiner Elements
+3. Copy and paste the `karabiner.json` file into your `~/.config/karabiner` folder
+Note: Backup your own `karabiner.json` file first if you've made changes!
 ## Customising
 Unlike mxstbr I'm not smart enough to build a typescript translator, so this is pure JSON. I've not looked at [Goku](https://github.com/yqrashawn/GokuRakuJoudo) yet as I'm just getting started with my experiment (started this afternoon!). I guess I'll replace this with a goku template once I've had a play.
 
@@ -49,8 +48,8 @@ After that are all actions checking for the current layer's stat before resettin
 In cases where you actually want to continue using the keys, such as numpad - just don't reset `stat` before the shell_command and we stay in the currently layer until ⇪ is pressed again.
 
 I will add WASD as arrow keys and HJKL as VIM navigation to my config going forward, but you may also do things like volume and brightness controls without resetting immediately.
-## What's the `~/config/karabiner/stat.txt` file?
-In all the `shell_command`s you'll see that I chain an `echo` command to `stat.txt` file.
+## xbar integration
+In all the `shell_command`s you'll see that I chain an `echo` command to `stat.txt` and `fn_lock.txt` files.
 
 e.g.:
 ```json
@@ -59,23 +58,29 @@ e.g.:
 
 This is a helper file to be used along side [xbar](https://xbarapp.com/). I write in the current stat and display it on my menu bar by reading the text file's contents. This way I have eye on what my current stat is if I ever lose track.
 
-![Ready stat](img/ready.png)
-![Hyper stat](img/hyper.png)
-![Numpad stat](img/numpad.png)
-
-I have a very basic shell script `~/Library/Application Support/xbar/plugins/text.1s.sh` that reads the `stat.txt` file:
-
+I have a couple of very basic shell scripts in the xbar plugins folder `~/Library/Application Support/xbar/plugins/` that reads the files:
+### stat.1s.sh:
 ```bash
 #!/usr/bin/env bash
 cat ~/.config/karabiner/stat.txt
 ```
+### fn.1s.sh:
+```bash
+#!/usr/bin/env bash
+cat ~/.config/karabiner/fn_lock.txt
+```
 
-The `.1s` part of the filename denotes how often the plugin is refreshed, and 1 second is the lowest limit.
+The `.1s` part of the filename denotes how often the plugin is refreshed
+
+Note: 1 second is the lowest limit, which means it's the fastest refresh rate possible.
+
+xbar demo:
+![Screenshot|500](img/screenshot-1.png)
 #### xbar not working?
 Check that the files have the right `chmod` permissions:
-- `a+rw` for `~/config/karabiner/stat.txt`
+- `a+rw` for the `.txt` files in `~/.config/karabiner/` folder
 	- Write shouldn't be an issue as the file will be created by Karabiner Elements when you first use this template
 	- Read also shouldn't be a problem if you're the same user, but I don't fully understanding file permissions in UNIX!
-- `a+x` for `~/Library/Application Support/xbar/plugins/text.1s.sh`
+- `a+x` for the `.sh` files in the `~/Library/Application Support/xbar/plugins/` folder
 
 Also I assume that the `#!/usr/bin/env bash` shebang works on all MacOS computers. I don't know UNIX so I can't troubleshoot if that could be an issue.

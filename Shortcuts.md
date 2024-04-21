@@ -6,6 +6,7 @@
 - (⇧+⇪) - Toggle Capslock, order matters
 - (Hold ⇪) - Hyper key, equivalent to (⇧^⌥⌘)
 - (⇪) - Initiate Menu shortcuts
+	- (⇪) again to exit at any point below
 	- (O)pen Apps
 		- (F)inder
 		- Proton(V)PN
@@ -38,6 +39,13 @@
 		- (L)ockscreen
 			- I went for Raycast's lockscreen command deeplink because I couldn't find the right shell command, but it works so I can't be bothered!
 			- Also I know sometimes terminal MacOS terminal commands for these things change so hopefully this is more future proofed!
+		- (F)n Lock
+			- (⇪, S, F) to toggle back
+			- Hold (fn) to temporarily toggle Function keys vs Media keys function
+			- (F4) to (F6) media keys seems to differ between MacBook models over the years, so here's what they do:
+				- (F4) - Spotlight
+				- (F5) - Dictation
+				- (F6) - Sleep (disabled because fuck accidentally sleeping your laptop)
 	- (F)inder
 		- A(P)plications
 			- (⇪, F, A) feels uncomfortable so I went with (⇪, F, P)
@@ -46,6 +54,14 @@
 		- (K)arabiner Config folder
 		- (S)creenshots
 			- Custom folder with CleanShot X
+	- (N)umpad - Toggles on numpad
+		- (U) - 4
+		- (I) - 5
+		- (O) - 6
+		- (J) - 1
+		- (K) - 2
+		- (L) - 3
+		- (M) - 0
 	- (V)ideo Services - via browser
 		- (Y)ouTube
 		- Ne(B)ula

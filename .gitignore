@@ -1,3 +1,6 @@
 /assets
 stat.txt
 fn_lock.txt
+/automatic_backups
+/working_files
+.DS_Store
