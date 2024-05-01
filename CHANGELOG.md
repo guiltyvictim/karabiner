@@ -1,3 +1,7 @@
+# 0.3.1 - (2024-05-01)
+## Fixed
+- Fixed modifiers with function keys not working with fn lock
+	- e.g. ⇧+F11 wasn't working before, now it does
 # 0.3 - (2024-04-21)
 ## Fn Lock time!
 Who would have thought that Fn key toggle implementation can be so tricky?!
