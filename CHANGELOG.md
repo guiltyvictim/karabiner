@@ -1,7 +1,13 @@
 # 0.3.1 - (2024-05-01)
 ## Fixed
+- Fixed modifiers with function keys not working with fn key during fn lock
+	- e.g. Fn lock on: Fn+F8 wasn't working before, now it does
+
+# 0.3.1 - (2024-05-01)
+## Fixed
 - Fixed modifiers with function keys not working with fn lock
 	- e.g. ⇧+F11 wasn't working before, now it does
+
 # 0.3 - (2024-04-21)
 ## Fn Lock time!
 Who would have thought that Fn key toggle implementation can be so tricky?!
@@ -13,6 +19,7 @@ So anyway, I had to declare all 12 Function keys 4 times, with 2 sets including 
 It's tempting to use `file_paths` option instead of `bundle_identifiers`, which I think was the intended solution to not having to repeat the applications for every key. That way we could put all the apps we want auto fn lock on in the same folder.
 
 However, I'm worried about any apps or scripts that references app's package contents would break, which may be much harder to fix - so I went with the uglier `bundle_identifiers` option. You can still do a search and replace to change your apps though so it's not the end of the world.
+
 ## New features
 - (⇪, S, F) - fn lock toggle. Repeat to toggle back (unlike Numpad layer).
 	- I went with (⇪, S, F) because it's easier than (⇪, fn) and feels sensible inside System layer

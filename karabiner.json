@@ -1628,7 +1628,7 @@
                                 "from": {
                                     "key_code": "f1",
                                     "modifiers": {
-                                        "optional": ["any"]
+                                        "optional": ["caps_lock", "left_command", "left_control", "left_option", "left_shift", "right_command", "right_control", "right_option", "right_shift", "command", "control", "option", "shift", "left_alt", "left_gui", "right_alt", "right_gui"]
                                     }
                                 },
                                 "to": [
@@ -1649,7 +1649,7 @@
                                 "from": {
                                     "key_code": "f2",
                                     "modifiers": {
-                                        "optional": ["any"]
+                                        "optional": ["caps_lock", "left_command", "left_control", "left_option", "left_shift", "right_command", "right_control", "right_option", "right_shift", "command", "control", "option", "shift", "left_alt", "left_gui", "right_alt", "right_gui"]
                                     }
                                 },
                                 "to": [
@@ -1670,7 +1670,7 @@
                                 "from": {
                                     "key_code": "f3",
                                     "modifiers": {
-                                        "optional": ["any"]
+                                        "optional": ["caps_lock", "left_command", "left_control", "left_option", "left_shift", "right_command", "right_control", "right_option", "right_shift", "command", "control", "option", "shift", "left_alt", "left_gui", "right_alt", "right_gui"]
                                     }
                                 },
                                 "to": [
@@ -1691,7 +1691,7 @@
                                 "from": {
                                     "key_code": "f4",
                                     "modifiers": {
-                                        "optional": ["any"]
+                                        "optional": ["caps_lock", "left_command", "left_control", "left_option", "left_shift", "right_command", "right_control", "right_option", "right_shift", "command", "control", "option", "shift", "left_alt", "left_gui", "right_alt", "right_gui"]
                                     }
                                 },
                                 "to": [
@@ -1712,7 +1712,7 @@
                                 "from": {
                                     "key_code": "f5",
                                     "modifiers": {
-                                        "optional": ["any"]
+                                        "optional": ["caps_lock", "left_command", "left_control", "left_option", "left_shift", "right_command", "right_control", "right_option", "right_shift", "command", "control", "option", "shift", "left_alt", "left_gui", "right_alt", "right_gui"]
                                     }
                                 },
                                 "to": [
@@ -1733,7 +1733,7 @@
                                 "from": {
                                     "key_code": "f7",
                                     "modifiers": {
-                                        "optional": ["any"]
+                                        "optional": ["caps_lock", "left_command", "left_control", "left_option", "left_shift", "right_command", "right_control", "right_option", "right_shift", "command", "control", "option", "shift", "left_alt", "left_gui", "right_alt", "right_gui"]
                                     }
                                 },
                                 "to": [
@@ -1754,7 +1754,7 @@
                                 "from": {
                                     "key_code": "f8",
                                     "modifiers": {
-                                        "optional": ["any"]
+                                        "optional": ["caps_lock", "left_command", "left_control", "left_option", "left_shift", "right_command", "right_control", "right_option", "right_shift", "command", "control", "option", "shift", "left_alt", "left_gui", "right_alt", "right_gui"]
                                     }
                                 },
                                 "to": [
@@ -1775,7 +1775,7 @@
                                 "from": {
                                     "key_code": "f9",
                                     "modifiers": {
-                                        "optional": ["any"]
+                                        "optional": ["caps_lock", "left_command", "left_control", "left_option", "left_shift", "right_command", "right_control", "right_option", "right_shift", "command", "control", "option", "shift", "left_alt", "left_gui", "right_alt", "right_gui"]
                                     }
                                 },
                                 "to": [
@@ -1796,7 +1796,7 @@
                                 "from": {
                                     "key_code": "f10",
                                     "modifiers": {
-                                        "optional": ["any"]
+                                        "optional": ["caps_lock", "left_command", "left_control", "left_option", "left_shift", "right_command", "right_control", "right_option", "right_shift", "command", "control", "option", "shift", "left_alt", "left_gui", "right_alt", "right_gui"]
                                     }
                                 },
                                 "to": [
@@ -1817,7 +1817,7 @@
                                 "from": {
                                     "key_code": "f11",
                                     "modifiers": {
-                                        "optional": ["any"]
+                                        "optional": ["caps_lock", "left_command", "left_control", "left_option", "left_shift", "right_command", "right_control", "right_option", "right_shift", "command", "control", "option", "shift", "left_alt", "left_gui", "right_alt", "right_gui"]
                                     }
                                 },
                                 "to": [
@@ -1838,7 +1838,7 @@
                                 "from": {
                                     "key_code": "f12",
                                     "modifiers": {
-                                        "optional": ["any"]
+                                        "optional": ["caps_lock", "left_command", "left_control", "left_option", "left_shift", "right_command", "right_control", "right_option", "right_shift", "command", "control", "option", "shift", "left_alt", "left_gui", "right_alt", "right_gui"]
                                     }
                                 },
                                 "to": [
@@ -2118,7 +2118,7 @@
                                 "from": {
                                     "key_code": "f1",
                                     "modifiers": {
-                                        "optional": ["any"]
+                                        "optional": ["caps_lock", "left_command", "left_control", "left_option", "left_shift", "right_command", "right_control", "right_option", "right_shift", "command", "control", "option", "shift", "left_alt", "left_gui", "right_alt", "right_gui"]
                                     }
                                 },
                                 "to": [
@@ -2143,7 +2143,7 @@
                                 "from": {
                                     "key_code": "f2",
                                     "modifiers": {
-                                        "optional": ["any"]
+                                        "optional": ["caps_lock", "left_command", "left_control", "left_option", "left_shift", "right_command", "right_control", "right_option", "right_shift", "command", "control", "option", "shift", "left_alt", "left_gui", "right_alt", "right_gui"]
                                     }
                                 },
                                 "to": [
@@ -2168,7 +2168,7 @@
                                 "from": {
                                     "key_code": "f3",
                                     "modifiers": {
-                                        "optional": ["any"]
+                                        "optional": ["caps_lock", "left_command", "left_control", "left_option", "left_shift", "right_command", "right_control", "right_option", "right_shift", "command", "control", "option", "shift", "left_alt", "left_gui", "right_alt", "right_gui"]
                                     }
                                 },
                                 "to": [
@@ -2193,7 +2193,7 @@
                                 "from": {
                                     "key_code": "f4",
                                     "modifiers": {
-                                        "optional": ["any"]
+                                        "optional": ["caps_lock", "left_command", "left_control", "left_option", "left_shift", "right_command", "right_control", "right_option", "right_shift", "command", "control", "option", "shift", "left_alt", "left_gui", "right_alt", "right_gui"]
                                     }
                                 },
                                 "to": [
@@ -2218,7 +2218,7 @@
                                 "from": {
                                     "key_code": "f5",
                                     "modifiers": {
-                                        "optional": ["any"]
+                                        "optional": ["caps_lock", "left_command", "left_control", "left_option", "left_shift", "right_command", "right_control", "right_option", "right_shift", "command", "control", "option", "shift", "left_alt", "left_gui", "right_alt", "right_gui"]
                                     }
                                 },
                                 "to": [
@@ -2243,7 +2243,7 @@
                                 "from": {
                                     "key_code": "f7",
                                     "modifiers": {
-                                        "optional": ["any"]
+                                        "optional": ["caps_lock", "left_command", "left_control", "left_option", "left_shift", "right_command", "right_control", "right_option", "right_shift", "command", "control", "option", "shift", "left_alt", "left_gui", "right_alt", "right_gui"]
                                     }
                                 },
                                 "to": [
@@ -2268,7 +2268,7 @@
                                 "from": {
                                     "key_code": "f8",
                                     "modifiers": {
-                                        "optional": ["any"]
+                                        "optional": ["caps_lock", "left_command", "left_control", "left_option", "left_shift", "right_command", "right_control", "right_option", "right_shift", "command", "control", "option", "shift", "left_alt", "left_gui", "right_alt", "right_gui"]
                                     }
                                 },
                                 "to": [
@@ -2293,7 +2293,7 @@
                                 "from": {
                                     "key_code": "f9",
                                     "modifiers": {
-                                        "optional": ["any"]
+                                        "optional": ["caps_lock", "left_command", "left_control", "left_option", "left_shift", "right_command", "right_control", "right_option", "right_shift", "command", "control", "option", "shift", "left_alt", "left_gui", "right_alt", "right_gui"]
                                     }
                                 },
                                 "to": [
@@ -2318,7 +2318,7 @@
                                 "from": {
                                     "key_code": "f10",
                                     "modifiers": {
-                                        "optional": ["any"]
+                                        "optional": ["caps_lock", "left_command", "left_control", "left_option", "left_shift", "right_command", "right_control", "right_option", "right_shift", "command", "control", "option", "shift", "left_alt", "left_gui", "right_alt", "right_gui"]
                                     }
                                 },
                                 "to": [
@@ -2343,7 +2343,7 @@
                                 "from": {
                                     "key_code": "f11",
                                     "modifiers": {
-                                        "optional": ["any"]
+                                        "optional": ["caps_lock", "left_command", "left_control", "left_option", "left_shift", "right_command", "right_control", "right_option", "right_shift", "command", "control", "option", "shift", "left_alt", "left_gui", "right_alt", "right_gui"]
                                     }
                                 },
                                 "to": [
@@ -2368,7 +2368,7 @@
                                 "from": {
                                     "key_code": "f12",
                                     "modifiers": {
-                                        "optional": ["any"]
+                                        "optional": ["caps_lock", "left_command", "left_control", "left_option", "left_shift", "right_command", "right_control", "right_option", "right_shift", "command", "control", "option", "shift", "left_alt", "left_gui", "right_alt", "right_gui"]
                                     }
                                 },
                                 "to": [
